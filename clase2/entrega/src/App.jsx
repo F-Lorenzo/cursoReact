@@ -1,12 +1,16 @@
 import './App.css'
-import NavBar from "./components/navBar/NavBar.jsx"
-
 import React from 'react'
+import NavBar from "./components/navBar/NavBar.jsx"
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
+
 
 function App() {
   return (
-    <NavBar/>
-  )
+    <>
+      <NavBar/>
+      <ItemListContainer/> 
+    </>
+    )
 }
 
 export default App
