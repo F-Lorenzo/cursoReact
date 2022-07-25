@@ -7,7 +7,7 @@ import Counter from './card/counter/Counter.jsx'
 function ItemListContainer() {
   return (
     <div class="container">
-      <Counter/>
+      <Card/>
       <p>Aca iran Cards de los items / productos</p>
     </div>
   )
