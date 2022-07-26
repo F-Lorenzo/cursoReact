@@ -1,14 +1,13 @@
-import React from 'react'
-import Card from './card/Card.jsx'
-import Counter from './card/counter/Counter.jsx'
+import CardList from './cardList/CardList.jsx'
+
+
 
 
 
 function ItemListContainer() {
   return (
     <div class="container">
-      <Card/>
-      <p>Aca iran Cards de los items / productos</p>
+      <CardList/>
     </div>
   )
 }

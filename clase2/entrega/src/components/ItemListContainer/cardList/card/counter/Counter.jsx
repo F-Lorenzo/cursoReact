@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react'
-import DB from '../../../../db/dbProductos.json'
 
 function Counter({stock}) {
 
@@ -31,11 +30,13 @@ function Counter({stock}) {
     }
 
     return (
-        <div>
-            <button onClick={handleClickMas}>+</button>
-            <h3>{count}</h3>
-            <button onClick={handleClickMenos}>-</button>
-            <button onClick={onAdd}>onAdd</button>
+        <div class="container">
+            <div class="d-flex">
+                <button onClick={handleClickMas}>+</button>
+                <h3>{count}</h3>
+                <button onClick={handleClickMenos}>-</button>
+            </div>
+                
         </div>
     )
 }
