@@ -1,33 +1,19 @@
 import Card from './card/Card.jsx'
 import Carga from './Carga.jsx'
-import data from '../../../db/dbProductos.json'
 
 
-function CardList() {
-  const [autos,setAutos] =useState([]);
-  useEffect(() =>{
-    const autosList = new Promise((res,rej) =>{
-      setTimeout(() => {
-        let autosList = data;
-        return res.json(autosList)
-      }, 2000);
-    })
-    setAutos(autosList)
-  },[])
+function CardList({productList}) {
  
   return (
     <>
-      <div>
-        <ul>
-        {
-            autos.lenght === 0 ? <Carga/>: autos.map(auto=>(
-             <li><Card props={auto}/></li> 
-            ))
-          }
-        </ul>
-      </div>
+      {
+      productList.map((products)=>(
+      <Card key={products.id} products={products}/>)
+      )
+      }
     </>
   )
 }
+
 
 export default CardList
