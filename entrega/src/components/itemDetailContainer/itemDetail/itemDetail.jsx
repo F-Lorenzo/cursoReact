@@ -5,7 +5,7 @@ function itemDetail({product}) {
   return (
     <div>
       <div class = "container">
-        <div class = "d-flex">
+        <div class = "d-row">
           <div>
             <img src={product.image} />
           </div>

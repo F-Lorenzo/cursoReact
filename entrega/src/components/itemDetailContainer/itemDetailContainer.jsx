@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import ItemDetail from './itemDetail/itemDetail.jsx'
+import ItemDetail from './itemDetail/ItemDetail.jsx'
 import DB from '../../db/dbProductos.json'
 
 function itemDetailContainer() {
@@ -13,8 +13,9 @@ function itemDetailContainer() {
         },2000)
       })
       products.then((res) =>{
-        let prod = res;
-        prod=prod.find(p => p.id === id);
+        console.log("res",res)
+       let prod=res.filter(product=> product.id === id);
+        console.log("prod",prod)
         setProduct(prod);
       })
       .catch((err) =>{
