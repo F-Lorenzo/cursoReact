@@ -1,14 +1,24 @@
 import './App.css'
-import React,{useState,useEffect} from 'react'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar/NavBar.jsx"
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+
+
 
 
 function App() {
   return (
     <>
+    <BrowserRouter>
       <NavBar/>
-      <ItemListContainer/>
+      <Routes>
+        <Route path="/" element={<ItemListContainer/>}/>
+        <Route path="/productos/:marca" element={<ItemListContainer/>}/>
+        <Route path="/producto/:id" element={<ItemDetailContainer />}/>
+      </Routes>
+    </BrowserRouter>
     </>
     )
 }
