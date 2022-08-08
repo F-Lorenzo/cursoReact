@@ -1,5 +1,4 @@
 import Card from './card/Card.jsx'
-import Carga from './Carga.jsx'
 
 
 function CardList({productList}) {

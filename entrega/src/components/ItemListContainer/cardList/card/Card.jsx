@@ -12,7 +12,6 @@ function Card({products}) {
                   <h5 class="card-title" > {products.marca} {products.modelo}</h5>
                   <p class="card-text" >${products.precio}</p>
                   <p class="card-text" >stock:{products.stock}</p>
-                  <Counter stock={products.stock}/>
               </div>
           </div>
       </div>

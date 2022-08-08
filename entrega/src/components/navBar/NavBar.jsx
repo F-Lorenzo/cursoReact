@@ -16,11 +16,11 @@ function NavBar() {
                     <Link  to={"/"}>Home</Link>
                   </li>
                   <li class= "nav-item dropdown m-4">
-                    <Link class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"  to={"/"}>Autos</Link>
+                    <Link class="nav-link dropdown-toggle" href="categorias" role="button" data-bs-toggle="dropdown" aria-expanded="false"  to={"/"}>Autos</Link>
                     <ul class="dropdown-menu">
-                      <li><Link to={"/productos/suv"} class="dropdown-item" href="#">suv</Link></li>
-                      <li><Link to={"/productos/5p"} class="dropdown-item" href="#">5p</Link> </li>
-                      <li><Link to={"/productos/sedan"} class="dropdown-item" href="#">sedan</Link></li>
+                      <li><Link to={"/productos/suv"} class="dropdown-item" href="categorias">suv</Link></li>
+                      <li><Link to={"/productos/5p"} class="dropdown-item" href="categorias">5p</Link> </li>
+                      <li><Link to={"/productos/sedan"} class="dropdown-item" href="categorias">sedan</Link></li>
                     </ul>
                   </li>
                   <li class="nav-link m-4"role="button">
