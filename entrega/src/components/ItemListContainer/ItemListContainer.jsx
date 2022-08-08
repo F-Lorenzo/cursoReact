@@ -20,7 +20,9 @@ function ItemListContainer() {
       let catArray = res.filter(item => item.category === category)
       console.log(catArray)
       setProductList(catArray);}
-      setProductList(res)
+      else{
+        setProductList(res)
+      }
     })
     .catch((err) =>{
       console.log(err)
