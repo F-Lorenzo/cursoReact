@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import logoCarrito from '../../img/carritoDeCompras.svg'
 
 
 function CartWidget() {
+
   return (
     <div class="container ">
         <button class="btn border-0">

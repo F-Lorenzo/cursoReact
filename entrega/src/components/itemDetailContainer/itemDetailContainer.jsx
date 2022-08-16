@@ -13,7 +13,6 @@ function itemDetailContainer() {
         },2000)
       })
       products.then((res) =>{
-        console.log("res",res)
        let prod=res.filter(product=> product.id === id);
         console.log("prod",prod)
         setProduct(prod);

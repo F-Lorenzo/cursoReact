@@ -1,29 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
+import cartContext from '../../../context/CartContext'
 import Counter from '../../ItemListContainer/cardList/card/counter/Counter.jsx'
 
 function itemDetail({product}) {
-  // const [toCart,setToCart] = useState(false);
-  // const addToCart () =>{
-  //   setToCart = true;
-  // } 
+ const newCart = useContext(cartContext)
   return (
     <div>
       <div class = "container">
         <div class = "d-row">
           <div>
-            <img src={product.image} />
+            <img src={product.marca} />
           </div>
           <div>
             {product.description}
           </div>
         </div>
-          {/* {
-            toCart?
-            <Counter addToCart={addToCart}/>:
-            <button onClick={addToCart}>
-            <Link to={/cart}>ir al carrito</Link>
-            </button>
-          } */}
+        <Counter/>
       </div>
     </div>
   )
