@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "eslint": "^8.20.0",
+    "firebase": "^9.9.4",
     "fs": "^0.0.1-security",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

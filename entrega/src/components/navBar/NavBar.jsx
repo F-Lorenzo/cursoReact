@@ -5,29 +5,29 @@ import {Link} from 'react-router-dom'
 
 function NavBar() {
   return (
-    <div class ="container-fluid " >
-    <nav class="navbar navbar-expand  bg-warning " >
-      <div class="container-fluid ">
-        <div class="navbar-brand text-dark fw-bold p-3"><Link to={"/"}>CarShop</Link></div>
-        <div class = "d-flex justify-content-end">
-            <div class="collapse navbar-collapse " id="navbarNav">
-               <ul class="navbar-nav"> 
-                  <li class= "nav-link m-4"role="button">
-                    <Link  to={"/"}>Home</Link>
+    <div className ="container-fluid w-75 " >
+    <nav className="navbar navbar-expand  bg-dark  " >
+      <div className="container-fluid ">
+        <div className="navbar-brand fw-bold text-light p-3"><Link to={"/"}>CarShop</Link></div>
+        <div className = "d-flex justify-content-end">
+            <div className="collapse navbar-collapse " id="navbarNav">
+               <ul className="navbar-nav"> 
+                  <li className= "nav-link m-4 "role="button">
+                    <Link className="text-light" to={"/"}>Home</Link>
                   </li>
-                  <li class= "nav-item dropdown m-4">
-                    <Link class="nav-link dropdown-toggle" href="categorias" role="button" data-bs-toggle="dropdown" aria-expanded="false"  to={"/"}>Autos</Link>
-                    <ul class="dropdown-menu">
-                      <li><Link to={"/productos/suv"} class="dropdown-item" href="categorias">suv</Link></li>
-                      <li><Link to={"/productos/5p"} class="dropdown-item" href="categorias">5p</Link> </li>
-                      <li><Link to={"/productos/sedan"} class="dropdown-item" href="categorias">sedan</Link></li>
+                  <li className= "nav-item dropdown m-4">
+                    <Link className="nav-link dropdown-toggle text-light" href="categorias" role="button" data-bs-toggle="dropdown" aria-expanded="false"  to={"/"}>Autos</Link>
+                    <ul className="dropdown-menu">
+                      <li><Link to={"/productos/suv"} className="dropdown-item" href="categorias">suv</Link></li>
+                      <li><Link to={"/productos/5p"} className="dropdown-item" href="categorias">5p</Link> </li>
+                      <li><Link to={"/productos/sedan"} className="dropdown-item" href="categorias">sedan</Link></li>
                     </ul>
                   </li>
-                  <li class="nav-link m-4"role="button">
-                    <Link to={"/contacto"}>Contacto</Link>
+                  <li className="nav-link m-4"role="button">
+                    <Link  className="text-light" to={"/contacto"}>Contacto</Link>
                   </li> 
-                  <li class="nav-link m-1">
-                    <Link to={"/cart"}><CartWidget/></Link> 
+                  <li className="nav-link m-1">
+                    <Link  className="text-light" to={"/cart"}><CartWidget/></Link> 
                   </li>
               </ul>
             </div>

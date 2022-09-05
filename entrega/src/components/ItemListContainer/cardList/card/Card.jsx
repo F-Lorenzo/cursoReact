@@ -1,20 +1,19 @@
-import Counter from './counter/Counter.jsx'
-
-
+import React from 'react'
+import {Link} from 'react-router-dom'
 
 function Card({products}) {
   return (
-    <div class = "container "> 
-      <div class = "d-flex">
-          <div class="card g-col-4"  style={{width:"18rem"}}>
-          <img src={products.image} class="card-img-top" />
-              <div class="card-body ">
-                  <h5 class="card-title" > {products.marca} {products.modelo}</h5>
-                  <p class="card-text" >${products.precio}</p>
-                  <p class="card-text" >stock:{products.stock}</p>
+    <div className = "container m-2 col-4  "> 
+          <div className="card text-center p-2"  style={{width:"18rem"}}>
+         
+          {/* <img src={products.image} className="card-img-top" /> */}
+              <div className="card-body ">
+              <h5 className="card-title" > {products.Marca} {products.Modelo}</h5>
+                  <p className="card-text" >${products.Precio}</p>
+                  <p className="card-text" >stock:{products.Stock}</p>
               </div>
+              <Link to={'/producto/' + products.id}><div className="btn btn-primary">Más info</div></Link>
           </div>
-      </div>
     </div>
   )
 }

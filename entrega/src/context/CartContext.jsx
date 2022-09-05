@@ -1,30 +1,76 @@
-import React,{useState,useEffect} from 'react'
-export  const CartContext = React.createContext([])
-function CartProvider({children}) {
-  const [cart,setCart]=([]);
+import React, { createContext, useState, useEffect } from 'react'
 
-  const addproduct = (item,newQuantity) => {
-    const newCart = cart.filter(prod => prod.id === item.id);
-    newCart.push({...item,quantity: newQuantity});
-    setCart(newCart);
+export const MyContext = createContext()
+
+const ContextData = ({ children }) => {
+  const [cart, setCart] = useState([])
+  const [count, setCount] = useState(0)
+  const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem('cart'))) {
+      setCart(JSON.parse(localStorage.getItem('cart')))
+      setCount(cartLenght(JSON.parse(localStorage.getItem('cart'))))
+    }
+  }, [])
+
+  const addItem = (item, quantity) => {
+    if (isInCart(item.id)) {
+      cart.find((e) => e.id === item.id).quantity += quantity
+      setCart(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
+      setCount(cartLenght(cart))
+    } else {
+      const newItem = item
+      newItem.quantity = quantity
+      cart.push(newItem)
+      setCart(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
+      setCount(cartLenght(cart))
+    }
   }
 
-  const clearCart = () =>setCart([]);
+  const removeItem = (itemId) => {
+    const newCart = cart.filter((e) => e.id !== itemId)
+    setCart(newCart)
+    localStorage.setItem('cart', JSON.stringify(newCart))
+    setCount(cartLenght(newCart))
+  }
 
-  const isInCart = (id) =>( cart.find(product => product.id === id)? true : false)
+  const clear = () => {
+    setCart([])
+    setCount(0)
+    localStorage.setItem('cart', JSON.stringify([]))
+  }
 
-  const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
+  const isInCart = (id) => {
+    if (cart.find((item) => item.id === id) === undefined) {
+      return false
+    } else {
+      return true
+    }
+  }
 
+  const cartLenght = (arr) => {
+    return arr.reduce((sum, item) => sum + item.quantity, 0)
+  }
 
   return (
-    <CartContext.Provider value ={{
-      clearCart,
-      isInCart,
-      removeProduct
-    }}>
-        {children}
-    </CartContext.Provider>
+    <MyContext.Provider
+      value={{
+        cart,
+        setCart,
+        addItem,
+        clear,
+        removeItem,
+        count,
+        total,
+        setTotal,
+      }}
+    >
+      {children}
+    </MyContext.Provider>
   )
 }
 
-export default CartProvider
+export default ContextData

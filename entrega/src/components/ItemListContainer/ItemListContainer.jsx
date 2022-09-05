@@ -1,7 +1,8 @@
 import {useState,useEffect} from "react"
 import {useParams} from "react-router-dom"
 import CardList from './cardList/CardList.jsx'
-import DB from '../../db/dbProductos.json'
+import {collection,getDocs,getFirestore,query,where,} from 'firebase/firestore'
+
 
 
 
@@ -10,25 +11,24 @@ function ItemListContainer() {
   const [productList,setProductList]=useState([]);
   const {category} =useParams()
   useEffect(() => {
-    const products = new Promise((resolve, reject) => {
-      setTimeout(() =>{
-        resolve(DB)
-      },2000)
-    })
-    products.then((res) =>{
-      if(category){
-      let catArray = res.filter(item => item.category === category)
-      console.log(catArray)
-      setProductList(catArray);}
-      else{
-        setProductList(res)
-      }
-    })
-    .catch((err) =>{
-      console.log(err)
-    })
+    setProductList([])
 
-  },[category])
+    const db = getFirestore()
+
+    const itemCollection = collection(db, 'Productos')
+    const collectionFiltered = query(
+      collection(db, 'Productos'),
+      where('idCategoria', '==', `${category}`),
+    )
+
+    getDocs(!category ? itemCollection : collectionFiltered)
+      .then((snapshot) => {
+        setProductList(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+      })
+      .catch(() => {
+        setError(true)
+      })
+  }, [category])
   return (
     <div>
       <CardList productList={productList}/>
