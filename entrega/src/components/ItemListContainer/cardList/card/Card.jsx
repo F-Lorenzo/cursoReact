@@ -6,7 +6,7 @@ function Card({products}) {
     <div className = "container m-2 col-4  "> 
           <div className="card text-center p-2"  style={{width:"18rem"}}>
          
-          {/* <img src={products.image} className="card-img-top" /> */}
+          <img src={products.image} className="card-img-top" />
               <div className="card-body ">
               <h5 className="card-title" > {products.Marca} {products.Modelo}</h5>
                   <p className="card-text" >${products.Precio}</p>
@@ -18,4 +18,4 @@ function Card({products}) {
   )
 }
 
-export default Card
+export default Card    
